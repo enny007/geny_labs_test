@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:geny_labs_test/model/business_model.dart';
 
 class DioClient {
@@ -19,8 +20,8 @@ class DioClient {
 
   Future<List<BusinessModel>> fetchBusinesses() async {
     try {
-      final response = await _dio.get('assets/bundle/businesses.json');
-      final List<dynamic> rawList = jsonDecode(response.data);
+      final data = await rootBundle.loadString('assets/bundle/business.json');
+      final List<dynamic> rawList = jsonDecode(data);
       return rawList.map((e) => BusinessModel.fromJson(e)).toList();
     } catch (e) {
       throw Exception('Failed to load businesses: $e');
