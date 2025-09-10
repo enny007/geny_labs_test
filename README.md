@@ -101,15 +101,6 @@ The project uses:
 - Strong typing with null safety
 - Comprehensive error handling
 
-### Testing
-
-```bash
-# Run tests
-flutter test
-
-# Run integration tests
-flutter test integration_test/
-```
 
 ## Contributing
 
